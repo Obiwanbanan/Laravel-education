@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Client;
+use App\Models\Site;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ['middleware' => 'auth']
+
 Route::get('/', function () {
-    return view('welcome');
+
+    $sites = Site::all();
+    $clients = Client::all();
+    return view('main',['sites' => $sites, 'clients' => $clients]);
 });
 
-Route::get('/test-page', function () {
-    return view('test');
-});
+Route::get('/info', [ClientController::class, 'index']);

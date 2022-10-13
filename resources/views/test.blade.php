@@ -8,9 +8,9 @@
 
 
     </head>
-    <body class="antialiased">
+    <body>
             <div>
                 test
             </div>
-    </body>>
+    </body>
 </html>
