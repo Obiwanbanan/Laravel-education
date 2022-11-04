@@ -18,10 +18,6 @@ class SiteResource extends JsonResource
             "id" => $this->id,
             "name_site" =>$this->name_site,
             "site_map" =>$this->site_map,
-            "meta" => [
-                "param1" => 1,
-                "param2" => 2,
-            ]
         ];
     }
 }

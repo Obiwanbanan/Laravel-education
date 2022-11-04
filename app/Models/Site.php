@@ -10,8 +10,8 @@ class Site extends Model
     use HasFactory;
     protected $fillable = ['name_site', 'site_map'];
 
-    public function clients()
+    public function User()
     {
-        return $this->belongsToMany(Client::class);
+        return $this->belongsToMany(User::class);
     }
 }
