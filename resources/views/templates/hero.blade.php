@@ -1,4 +1,8 @@
 <section class="main__hero">
+    <div >
+
+    </div>
+
     <div class="main__add-section">
         <h2>
             Add site form
@@ -49,50 +53,50 @@
     </div>
 
 
-    <div class="main__clients">
-        <form action="api/client" method="POST">
-            <select class="main__client-select">
-                @foreach($clients as $client)
-                    <option value="{{ $client['id'] }}"> {{ $client['name'] }} </option>
-                @endforeach
+{{--    <div class="main__clients">--}}
+{{--        <form action="api/client" method="POST">--}}
+{{--            <select class="main__client-select">--}}
+{{--                @foreach($clients as $client)--}}
+{{--                    <option value="{{ $client['id'] }}"> {{ $client['name'] }} </option>--}}
+{{--                @endforeach--}}
 
-            </select>
+{{--            </select>--}}
 
-            <input class="main__client-id" type="text" name="id_client" value="{{ $clients[0]['id'] }}"
-                   style="display: none">
-            <input type='submit' value="show"/>
-        </form>
+{{--            <input class="main__client-id" type="text" name="id_client" value="{{ $clients[0]['id'] }}"--}}
+{{--                   style="display: none">--}}
+{{--            <input type='submit' value="show"/>--}}
+{{--        </form>--}}
 
-    </div>
-
-
-</section>
-
-<script>
-
-    const selectDelete = document.querySelector(".main__select-delete");
-    const formDelete = document.querySelector(".main__form-delete");
-    const selectUpdate = document.querySelector(".main__select-update");
-    const formUpdate = document.querySelector(".main__form-update");
-
-    const selectClient = document.querySelector(".main__client-select");
-    const inputClient = document.querySelector(".main__client-id");
-
-    function changeAction(select, form) {
-        select.addEventListener('change', (event) => {
-            form.setAttribute('action', 'api/sites/' + event.target.value)
-        });
-    }
-
-    selectClient.addEventListener('change', (event) => {
-        inputClient.value = event.target.value
-    });
-
-    changeAction(selectDelete, formDelete)
-    changeAction(selectUpdate, formUpdate)
+{{--    </div>--}}
 
 
-</script>
+{{--</section>--}}
+
+{{--<script>--}}
+
+{{--    const selectDelete = document.querySelector(".main__select-delete");--}}
+{{--    const formDelete = document.querySelector(".main__form-delete");--}}
+{{--    const selectUpdate = document.querySelector(".main__select-update");--}}
+{{--    const formUpdate = document.querySelector(".main__form-update");--}}
+
+{{--    const selectClient = document.querySelector(".main__client-select");--}}
+{{--    const inputClient = document.querySelector(".main__client-id");--}}
+
+{{--    function changeAction(select, form) {--}}
+{{--        select.addEventListener('change', (event) => {--}}
+{{--            form.setAttribute('action', 'api/sites/' + event.target.value)--}}
+{{--        });--}}
+{{--    }--}}
+
+{{--    selectClient.addEventListener('change', (event) => {--}}
+{{--        inputClient.value = event.target.value--}}
+{{--    });--}}
+
+{{--    changeAction(selectDelete, formDelete)--}}
+{{--    changeAction(selectUpdate, formUpdate)--}}
+
+
+{{--</script>--}}
 
 
 

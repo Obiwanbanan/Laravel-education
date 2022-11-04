@@ -12,7 +12,7 @@ class ClientController extends Controller
     {
 
         $clients = Client::orderBy('id')->paginate(3);
-        return view('templates/info-table', ['clients' => $clients]);
+        return view('info', ['clients' => $clients]);
     }
 
     /**

@@ -16,10 +16,6 @@ class SiteResourceCollection extends ResourceCollection
     {
             return [
                 "site" => $this->collection,
-                "globalmeta" => [
-                    "param1" => '1',
-                    "param2" => '2'
-                ]
             ];
     }
 }

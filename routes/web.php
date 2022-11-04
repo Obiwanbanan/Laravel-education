@@ -2,9 +2,12 @@
 
 use App\Models\Client;
 use App\Models\Site;
+use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
-
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +22,27 @@ use App\Http\Controllers\ClientController;
 
 // ['middleware' => 'auth']
 
-Route::get('/', function () {
 
-    $sites = Site::all();
-    $clients = Client::all();
-    return view('main',['sites' => $sites, 'clients' => $clients]);
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/info', [ClientController::class, 'index'])->name('info.index');
+//    Route::get('/', function () {
+//        $sites = Site::all();
+//        $clients = Client::all();
+//        return view('main',['sites' => $sites, 'clients' => $clients]);
+//    });
+
+    Route::get('/', [\App\Http\Controllers\SiteController::class, 'index']);
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    Route::post('/feedback', [FeedbackController::class, 'send'])->name('feedback.send');
+    Route::get('/aboutUs', [AboutUsController::class, 'index'])->name('aboutUs.index');
+
+
+
+
 });
 
-Route::get('/info', [ClientController::class, 'index']);
+
+Auth::routes();
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
